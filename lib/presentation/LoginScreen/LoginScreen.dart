@@ -8,8 +8,8 @@ import 'Widgets/Button.dart';
 class loginScreen extends StatelessWidget {
   loginScreen({super.key});
 
-  TextEditingController PasswordCobntroller = TextEditingController();
-  TextEditingController userNameCobntroller = TextEditingController();
+  TextEditingController PasswordController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class loginScreen extends StatelessWidget {
             TextFWidget(
               HaedField: 'Email',
               Hinte: 'enter your email',
-              controller: userNameCobntroller,
+              controller: userNameController,
               validator: (input) {
                 if (input == null || input.trim().isEmpty) {
                   return 'Pleas enter full Name';
@@ -54,7 +54,8 @@ class loginScreen extends StatelessWidget {
               HaedField: 'password',
               Hinte: 'enter your password',
               IsScure: true,
-              controller: PasswordCobntroller,
+              controller: PasswordController,
+
 
             ),
             const SizedBox(

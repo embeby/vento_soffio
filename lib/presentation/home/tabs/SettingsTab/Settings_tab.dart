@@ -15,6 +15,7 @@ class SettingsTab extends StatefulWidget {
 class _SettingsTabState extends State<SettingsTab> {
   String? selectedLang = "English";
   String? selectedTheme = "light";
+  String? phoneNumber = '+20109842154';
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,8 @@ class _SettingsTabState extends State<SettingsTab> {
                 ),
                 InkWell(
                     onTap: () {},
-                    child: const Image(image: AssetImage(AssetsManager.personImage))),
+                    child: const Image(
+                        image: AssetImage(AssetsManager.personImage))),
                 const SizedBox(
                   height: 8,
                 ),
@@ -61,7 +63,7 @@ class _SettingsTabState extends State<SettingsTab> {
                   style: TextStyle(color: Colors.white38, fontSize: 14.sp),
                 ),
                 Text(
-                  '+20109842154',
+                  phoneNumber!,
                   style: TextStyle(color: Colors.white38, fontSize: 14.sp),
                 ),
                 SizedBox(

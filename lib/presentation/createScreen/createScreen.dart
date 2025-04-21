@@ -9,10 +9,10 @@ import '../LoginScreen/Widgets/textFildWedgiet.dart';
 class createScreen extends StatelessWidget {
   createScreen({super.key});
 
-  TextEditingController FullNameCobntroller = TextEditingController();
-  TextEditingController userNameCobntroller = TextEditingController();
-  TextEditingController PasswordCobntroller = TextEditingController();
-  TextEditingController rePasswordCobntroller = TextEditingController();
+  TextEditingController FullNameController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
+  TextEditingController PasswordController = TextEditingController();
+  TextEditingController rePasswordController = TextEditingController();
 
 // TextEditingController FullNameCobntroller =TextEditingController();
   @override
@@ -43,7 +43,7 @@ class createScreen extends StatelessWidget {
               Hinte: 'Enter your name',
 
               HaedField: 'Full name',
-              controller: FullNameCobntroller,
+              controller: FullNameController,
               validator: (input) {
                 if (input == null || input.trim().isEmpty) {
                   return 'Pleas enter full Name';
@@ -56,7 +56,7 @@ class createScreen extends StatelessWidget {
             TextFWidget(
                 Hinte: 'Enter your email',
                 HaedField: 'E-mail ',
-                controller: userNameCobntroller,
+                controller: userNameController,
 
             validator:(input){
               if(input==null|| input.trim().isEmpty){
@@ -68,7 +68,7 @@ class createScreen extends StatelessWidget {
                 Hinte: 'Enter your Password',
                 HaedField: 'Password',
                 IsScure: true,
-                controller: PasswordCobntroller,
+                controller: PasswordController,
 
               validator: (input) {
                   if(input==null||input.trim().isEmpty){
@@ -83,7 +83,7 @@ class createScreen extends StatelessWidget {
                 HaedField: 'Confirm',
                 Hinte: 'Confirm Password',
                 IsScure: true,
-                controller: rePasswordCobntroller,
+                controller: rePasswordController,
                 validator: (input) {
                   if(input==null||input.trim().isEmpty){
                     return'Pleas enter rePassword';

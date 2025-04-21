@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mostafa/presentation/LoginScreen/Widgets/textFildWedgiet.dart';
 
 class ModifyDataButtonSheet extends StatelessWidget {
-  const ModifyDataButtonSheet({super.key});
-
+   ModifyDataButtonSheet({super.key});
+  TextEditingController nameUController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,25 +17,38 @@ class ModifyDataButtonSheet extends StatelessWidget {
             'Edit',
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22),
             child: TextFormField(
+              controller: nameUController,
+              obscureText: true,
+              validator: (input) {
+                if(input==null){
+                  return 'pleas enter your Name';
+                }
+              },
+              style: TextStyle(color: Colors.black),
               decoration: InputDecoration(hintText: 'enter your name'),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22),
             child: TextFormField(
-              decoration: InputDecoration(hintText: 'enter your Phone'),
+              style: TextStyle(color: Colors.black),
+              controller: phoneController,
+              obscureText: true,
+              decoration: InputDecoration(
+
+                  hintText: 'enter your Phone'),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 60,
           ),
           ElevatedButton(onPressed: () {}, child: Text('Save changes'))
