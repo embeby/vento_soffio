@@ -12,6 +12,8 @@
 "settings": "Settings",
 "theme": "Themes",
 "language": "Language",
+"english": "English",
+"arabic": "Arabic",
 "light": "Light",
 "dark": "Dark",
 "logOut": "Log out",

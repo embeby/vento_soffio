@@ -20,7 +20,7 @@ class loginScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
             Container(
@@ -57,39 +57,39 @@ class loginScreen extends StatelessWidget {
               controller: PasswordCobntroller,
 
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             EButton(shaildButton: 'sign in', routeNme: RoutesManager.homeRoute),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Text(
+            const Text(
               'or sign in with',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-              Container(
+              SizedBox(
                 height: 60,
 
                 child: IconButton(
                     onPressed: () {},
                     icon: Image.asset(AssetsManager.iconGoogle)),
               ),
-              Container(
+              SizedBox(
                 height: 60,
                 child: IconButton(
                     onPressed: () {},
                     icon: Image.asset(AssetsManager.iconFacebook)),
               ),
             ]),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Dont have a account?',
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
@@ -98,7 +98,7 @@ class loginScreen extends StatelessWidget {
                       Navigator.pushReplacementNamed(
                           context, RoutesManager.createRoute);
                     },
-                    child: Text('Create an  account',
+                    child: const Text('Create an  account',
                         style: TextStyle(fontSize: 16,color: Colors.blueAccent)))
               ],
             ),

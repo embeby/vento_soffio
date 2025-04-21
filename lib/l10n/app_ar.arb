@@ -11,6 +11,8 @@
 "settings": "الاعدادات",
 "theme": "السمات",
 "language": "اللغة",
+"english": "انجليزي",
+"arabic": "عربي",
 "light": "فاتح",
 "dark": "داكن",
 "logOut": "تسجيل خروج",

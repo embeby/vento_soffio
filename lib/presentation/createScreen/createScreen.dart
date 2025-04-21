@@ -37,7 +37,7 @@ class createScreen extends StatelessWidget {
                     fontSize: 24.h,
                     fontWeight: FontWeight.bold)),
             SizedBox(
-              height: 30.h,
+              height: 20.h,
             ),
             TextFWidget(
               Hinte: 'Enter your name',

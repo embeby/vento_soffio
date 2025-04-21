@@ -36,16 +36,16 @@ class _HomeScreenState extends State<HomeScreen> {
         iconSize: 30,
         items:   [
            BottomNavigationBarItem(
-             backgroundColor: Colors.transparent,
+             backgroundColor: Colors.black,
              icon: ImageIcon(AssetImage(AssetsManager.HomeIcon)), label:AppLocalizations.of(context)!.home ,),
            BottomNavigationBarItem(
-             backgroundColor: Colors.transparent,
+             backgroundColor: Colors.black,
              icon: ImageIcon(AssetImage(AssetsManager.ServiceIcon)), label: AppLocalizations.of(context)!.service,),
            BottomNavigationBarItem(
-             backgroundColor: Colors.transparent,
+             backgroundColor: Colors.black,
              icon: ImageIcon(AssetImage(AssetsManager.messageIcon)), label: AppLocalizations.of(context)!.chat,),
            BottomNavigationBarItem(
-             backgroundColor: Colors.transparent,
+             backgroundColor: Colors.black,
              icon: Icon(Icons.settings_outlined), label: AppLocalizations.of(context)!.settings,),
             ],
       ),

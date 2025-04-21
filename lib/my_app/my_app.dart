@@ -18,31 +18,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(375, 812),
+      designSize: const Size(375, 812),
       splitScreenMode: true,
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
-          localizationsDelegates: [
+          localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          supportedLocales: [
+          supportedLocales: const [
             Locale('en'), // English
             Locale('ar'), // Arabic
           ],
-          locale: Locale('en'),
+          locale: const Locale('en'),
           theme: MyTheme.DarkeThme,
           title: 'Vento soffio',
           debugShowCheckedModeBanner: false,
           routes: {
             RoutesManager.homeRoute: (_) => HomeScreen(),
-            RoutesManager.splashRoute: (_) => SplashScreen(),
+            RoutesManager.splashRoute: (_) =>  const SplashScreen(),
             RoutesManager.loginRoute: (_) => loginScreen(),
             RoutesManager.createRoute: (_) => createScreen(),
-            RoutesManager.detailsRoute: (_) => detailsScreen(),
+            RoutesManager.detailsRoute: (_) => const detailsScreen(),
             RoutesManager.ChatRoute: (_) => ChatScreen(),
           },
           initialRoute: RoutesManager.splashRoute,

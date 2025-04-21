@@ -7,7 +7,6 @@ class AssetsManager {
   static const String ServiceIcon = 'assets/images/icon sarves w.png';
   static const String messageIcon = 'assets/images/message-removebg-preview 1.png';
   static const String HomeIcon = 'assets/images/Home-removebg-preview 1.png';
-  static const String Qr_codImage = 'assets/images/qr-code (1).png';
   static const String webImage = 'assets/images/web.png';
   static const String MobileImage = 'assets/images/Mobile App.webp';
   static const String backEndImage = 'assets/images/Back end.webp';
@@ -16,5 +15,7 @@ class AssetsManager {
   static const String sendImage = 'assets/images/send.png';
   static const String personImage = 'assets/images/personal image.png';
   static const String EditImage = 'assets/images/تعديل.png';
-  static const String scaancercalImage = 'assets/images/scaancercal.png';
+  static const String languageImage = 'assets/images/languege.png';
+  static const String themeImage = 'assets/images/theme.png';
+  static const String logUotImage = 'assets/images/logUot.png';
 }

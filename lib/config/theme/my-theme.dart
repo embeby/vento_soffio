@@ -15,7 +15,7 @@ class MyTheme {
             color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold)),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: Color(0xFFFFFFFF),
-      unselectedItemColor: Colors.white,
+      unselectedItemColor: Colors.white60,
       selectedIconTheme: IconThemeData(size: 40),
       showSelectedLabels: true,
       showUnselectedLabels: false,
