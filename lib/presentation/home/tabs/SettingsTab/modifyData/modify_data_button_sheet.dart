@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:mostafa/presentation/LoginScreen/Widgets/textFildWedgiet.dart';
 
 class ModifyDataButtonSheet extends StatelessWidget {
-   ModifyDataButtonSheet({super.key});
+  ModifyDataButtonSheet({super.key});
+
   TextEditingController nameUController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height * .4,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20), color: Colors.transparent),
       child: Column(
         children: [
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Text(
             'Edit',
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900),
@@ -24,9 +29,8 @@ class ModifyDataButtonSheet extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 22),
             child: TextFormField(
               controller: nameUController,
-              obscureText: true,
               validator: (input) {
-                if(input==null){
+                if (input == null) {
                   return 'pleas enter your Name';
                 }
               },
@@ -42,10 +46,7 @@ class ModifyDataButtonSheet extends StatelessWidget {
             child: TextFormField(
               style: TextStyle(color: Colors.black),
               controller: phoneController,
-              obscureText: true,
-              decoration: InputDecoration(
-
-                  hintText: 'enter your Phone'),
+              decoration: InputDecoration(hintText: 'enter your Phone'),
             ),
           ),
           const SizedBox(
@@ -59,8 +60,12 @@ class ModifyDataButtonSheet extends StatelessWidget {
 
   static void show(BuildContext context) {
     showModalBottomSheet(
+      isScrollControlled: true,
       context: context,
-      builder: (context) => ModifyDataButtonSheet(),
+      builder: (context) => Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: ModifyDataButtonSheet(),
+      ),
     );
   }
 }

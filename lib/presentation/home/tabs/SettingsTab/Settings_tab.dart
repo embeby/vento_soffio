@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mostafa/core/utils/assets_magaer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mostafa/presentation/home/tabs/SettingsTab/modifyData/modify_data_button_sheet.dart';
+import 'package:mostafa/provider/Settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({super.key});
@@ -15,10 +17,12 @@ class SettingsTab extends StatefulWidget {
 class _SettingsTabState extends State<SettingsTab> {
   String? selectedLang = "English";
   String? selectedTheme = "light";
-  String? phoneNumber = '+20109842154';
+  TextEditingController nameUController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    var provider =Provider.of<SettingsProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.settings),
@@ -55,7 +59,7 @@ class _SettingsTabState extends State<SettingsTab> {
                   height: 8,
                 ),
                 Text(
-                  'user12455564',
+                  nameUController.text,
                   style: TextStyle(color: Colors.white, fontSize: 16.sp),
                 ),
                 Text(
@@ -63,7 +67,7 @@ class _SettingsTabState extends State<SettingsTab> {
                   style: TextStyle(color: Colors.white38, fontSize: 14.sp),
                 ),
                 Text(
-                  phoneNumber!,
+                  phoneController.text,
                   style: TextStyle(color: Colors.white38, fontSize: 14.sp),
                 ),
                 SizedBox(
@@ -101,9 +105,6 @@ class _SettingsTabState extends State<SettingsTab> {
                                 color: Colors.white, fontSize: 22),
                           ),
                           const Spacer(),
-                          const SizedBox(
-                            width: 27,
-                          ),
                           DropdownButton<String>(
                             borderRadius: BorderRadius.circular(30),
                             dropdownColor: Colors.black,
@@ -120,7 +121,7 @@ class _SettingsTabState extends State<SettingsTab> {
                               selectedTheme = value;
                               return DropdownMenuItem<String>(
                                 value: selectedTheme,
-                                child: Text(selectedTheme ?? ''),
+                                child: Text(selectedTheme ?? '',),
                               );
                             }).toList(),
                             onChanged: (newTheme) {

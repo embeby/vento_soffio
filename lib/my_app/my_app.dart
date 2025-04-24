@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mostafa/config/theme/my-theme.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
+import 'package:mostafa/provider/Settings_provider.dart';
+import 'package:provider/provider.dart';
 import '../presentation/LoginScreen/LoginScreen.dart';
 import '../presentation/createScreen/createScreen.dart';
 import '../presentation/home/home_screen.dart';
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context,listen: true);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       splitScreenMode: true,
@@ -33,16 +36,18 @@ class MyApp extends StatelessWidget {
             Locale('en'), // English
             Locale('ar'), // Arabic
           ],
-          locale: const Locale('en'),
-          theme: MyTheme.DarkeThme,
+          locale:  Locale('en'),
+          theme: MyTheme.lightTheme,
+          darkTheme: MyTheme.DarkTheme,
+          themeMode:provider.currentTheme ,
           title: 'Vento soffio',
           debugShowCheckedModeBanner: false,
           routes: {
             RoutesManager.homeRoute: (_) => HomeScreen(),
-            RoutesManager.splashRoute: (_) =>  const SplashScreen(),
+            RoutesManager.splashRoute: (_) =>   SplashScreen(),
             RoutesManager.loginRoute: (_) => loginScreen(),
             RoutesManager.createRoute: (_) => createScreen(),
-            RoutesManager.detailsRoute: (_) => const detailsScreen(),
+            RoutesManager.detailsRoute: (_) =>  detailsScreen(),
             RoutesManager.ChatRoute: (_) => ChatScreen(),
           },
           initialRoute: RoutesManager.splashRoute,
