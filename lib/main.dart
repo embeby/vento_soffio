@@ -6,5 +6,5 @@ import 'my_app/my_app.dart';
 void main() {
   runApp( ChangeNotifierProvider(
       create: (context) => SettingsProvider(),
-      child: MyApp()));
+      child: const MyApp()));
 }

@@ -30,9 +30,9 @@ class HomeTab extends StatelessWidget {
             children: [
               Text(
                 AppLocalizations.of(context)!.welcomeT,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 36,
+                    fontSize: 32,
                     fontWeight: FontWeight.bold),
               ),
 

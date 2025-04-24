@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             Locale('en'), // English
             Locale('ar'), // Arabic
           ],
-          locale:  Locale('en'),
+          locale:Locale(provider.lan),
           theme: MyTheme.lightTheme,
           darkTheme: MyTheme.DarkTheme,
           themeMode:provider.currentTheme ,

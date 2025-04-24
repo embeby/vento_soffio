@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class TaskProgressExample extends StatefulWidget {
   @override
   _TaskProgressExampleState createState() => _TaskProgressExampleState();
@@ -32,7 +32,7 @@ class _TaskProgressExampleState extends State<TaskProgressExample> {
             ),
             SizedBox(height: 15),
             Text(
-              "${(progress * 100).toInt()}% تم إنجازه!",
+              "${(progress * 100).toInt()}${ AppLocalizations.of(context)!.mission}",
               style: TextStyle(fontSize: 22,color: Colors.white),
             ),
             ElevatedButton(

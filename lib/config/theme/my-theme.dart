@@ -28,7 +28,7 @@ class MyTheme {
     ),
   );
   static final ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: Colors.white,
     useMaterial3: true,
     appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
@@ -42,7 +42,7 @@ class MyTheme {
     bottomNavigationBarTheme:  BottomNavigationBarThemeData(
       selectedItemColor: Color(0xFFFFFFFF),
       unselectedItemColor: Colors.white60,
-      selectedIconTheme: IconThemeData(size: 40),
+      selectedIconTheme: IconThemeData(size: 50),
       showSelectedLabels: true,
       showUnselectedLabels: false,
     ),
