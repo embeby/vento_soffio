@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mostafa/aoth/LoginScreen/LoginScreen.dart';
+import 'package:mostafa/aoth/createScreen/createScreen.dart';
+import 'package:mostafa/aoth/splash/splash_screen.dart';
 import 'package:mostafa/config/theme/my-theme.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
 import 'package:mostafa/provider/Settings_provider.dart';
 import 'package:provider/provider.dart';
-import '../presentation/LoginScreen/LoginScreen.dart';
-import '../presentation/createScreen/createScreen.dart';
 import '../presentation/home/home_screen.dart';
 import '../presentation/home/tabs/chatTab/chatScreen.dart';
 import '../presentation/home/tabs/serviseTab/detalsServiess/detalsServiesscreen.dart';
-import '../presentation/splash/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

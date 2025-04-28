@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mostafa/aoth/LoginScreen/Widgets/textFildWedgiet.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
-import 'package:mostafa/presentation/LoginScreen/Widgets/textFildWedgiet.dart';
 import '../../core/utils/assets_magaer.dart';
 import 'Widgets/Button.dart';
 
@@ -40,6 +40,7 @@ class loginScreen extends StatelessWidget {
               height: 30.h,
             ),
             TextFWidget(
+              keyboard: TextInputType.emailAddress,
               HaedField: 'Email',
               Hinte: 'enter your email',
               controller: userNameController,
@@ -47,21 +48,25 @@ class loginScreen extends StatelessWidget {
                 if (input == null || input.trim().isEmpty) {
                   return 'Pleas enter full Name';
                 }
-
+                return null;
               },
             ),
             TextFWidget(
+              keyboard: TextInputType.visiblePassword,
               HaedField: 'password',
               Hinte: 'enter your password',
-              IsScure: true,
+              IsPasswerd: true,
+
               controller: PasswordController,
-
-
             ),
             const SizedBox(
               height: 50,
             ),
-            EButton(shaildButton: 'sign in', routeNme: RoutesManager.homeRoute),
+            EButton(
+              childButton: 'sign in',
+              routeNme: RoutesManager.homeRoute,
+              onClick: () {},
+            ),
             const SizedBox(
               height: 50,
             ),
@@ -74,7 +79,6 @@ class loginScreen extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
               SizedBox(
                 height: 60,
-
                 child: IconButton(
                     onPressed: () {},
                     icon: Image.asset(AssetsManager.iconGoogle)),
@@ -100,7 +104,8 @@ class loginScreen extends StatelessWidget {
                           context, RoutesManager.createRoute);
                     },
                     child: const Text('Create an  account',
-                        style: TextStyle(fontSize: 16,color: Colors.blueAccent)))
+                        style:
+                            TextStyle(fontSize: 16, color: Colors.blueAccent)))
               ],
             ),
             SizedBox(

@@ -13,17 +13,16 @@ class createScreen extends StatelessWidget {
   TextEditingController userNameController = TextEditingController();
   TextEditingController PasswordController = TextEditingController();
   TextEditingController rePasswordController = TextEditingController();
-
-// TextEditingController FullNameCobntroller =TextEditingController();
+  TextEditingController PhoneController =TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF191919),
+      backgroundColor: const Color(0xFF191919),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Image.asset(
@@ -41,7 +40,7 @@ class createScreen extends StatelessWidget {
             ),
             TextFWidget(
               Hinte: 'Enter your name',
-
+              keyboard: TextInputType.name,
               HaedField: 'Full name',
               controller: FullNameController,
               validator: (input) {
@@ -51,23 +50,40 @@ class createScreen extends StatelessWidget {
                 if (input.length < 8) {
                   return 'Full name must be more than 10 characters';
                 }
+                return null;
               },
             ),
-            TextFWidget(
+            TextFWidget (
+              keyboard: TextInputType.emailAddress,
                 Hinte: 'Enter your email',
                 HaedField: 'E-mail ',
                 controller: userNameController,
 
             validator:(input){
               if(input==null|| input.trim().isEmpty){
-                return 'Pleas enter user Name';
+                return 'Pleas enter user email';
               }
+              return null;
             },
             ),
             TextFWidget(
+              keyboard: TextInputType.phone,
+                Hinte: 'Enter your phone',
+                HaedField: 'Phone Number',
+                controller: PhoneController,
+
+            validator:(input){
+              if(input==null|| input.trim().isEmpty){
+                return 'Pleas enter user Phone';
+              }
+              return null;
+            },
+            ),
+            TextFWidget(
+              keyboard: TextInputType.visiblePassword,
                 Hinte: 'Enter your Password',
                 HaedField: 'Password',
-                IsScure: true,
+                IsPasswerd: true,
                 controller: PasswordController,
 
               validator: (input) {
@@ -77,12 +93,14 @@ class createScreen extends StatelessWidget {
                 if (input.length < 8) {
                 return 'password must be more than 10  ';
                 }
+                return null;
               }
             ),
             TextFWidget(
+              keyboard: TextInputType.visiblePassword,
                 HaedField: 'Confirm',
                 Hinte: 'Confirm Password',
-                IsScure: true,
+                IsPasswerd: true,
                 controller: rePasswordController,
                 validator: (input) {
                   if(input==null||input.trim().isEmpty){
@@ -91,49 +109,52 @@ class createScreen extends StatelessWidget {
                   if (input.length < 8) {
                     return 'password must be more than 10  ';
                   }
+                  return null;
                 },
 
 
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             EButton(
-                shaildButton: 'Create account',
-                routeNme: RoutesManager.homeRoute),
-            SizedBox(
+              childButton: 'Create account',
+                routeNme: RoutesManager.homeRoute,onClick: () {
+              createAccount();
+                },),
+            const SizedBox(
               height: 20,
             ),
-            Text('or signep with',
+            const Text('or signep with',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
                     fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-              Container(
+              SizedBox(
                 height: 60,
                 child: IconButton(
                     onPressed: () {},
                     icon: Image.asset(AssetsManager.iconGoogle)),
               ),
-              Container(
+              SizedBox(
                 height: 60,
                 child: IconButton(
                     onPressed: () {},
                     icon: Image.asset(AssetsManager.iconFacebook)),
               ),
             ]),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Already have an account?',
+                const Text('Already have an account?',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -144,7 +165,7 @@ class createScreen extends StatelessWidget {
                       Navigator.pushReplacementNamed(
                           context, RoutesManager.loginRoute);
                     },
-                    child: Text('sign in',
+                    child: const Text('sign in',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w400 ,color: Colors.blueAccent),
                         textAlign: TextAlign.center))
@@ -154,5 +175,8 @@ class createScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+  createAccount(){
+
   }
 }

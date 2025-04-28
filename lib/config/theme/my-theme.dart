@@ -27,6 +27,27 @@ class MyTheme {
       ),
     ),
   );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   static final ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     useMaterial3: true,
@@ -39,7 +60,7 @@ class MyTheme {
         elevation: 0,
         titleTextStyle: TextStyle(
             color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold)),
-    bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+    bottomNavigationBarTheme:   BottomNavigationBarThemeData(
       selectedItemColor: Color(0xFFFFFFFF),
       unselectedItemColor: Colors.white60,
       selectedIconTheme: IconThemeData(size: 50),
