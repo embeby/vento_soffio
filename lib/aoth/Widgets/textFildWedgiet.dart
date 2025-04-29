@@ -7,14 +7,13 @@ class TextFWidget extends StatefulWidget {
   TextFWidget(
       {super.key,
       required this.HaedField,
-      required this.Hinte,
       this.validator,
       required this.keyboard,
       this.controller,
       this.IsPasswerd = false});
 
   String HaedField;
-  String Hinte;
+
   TextInputType keyboard;
   Validator? validator;
   TextEditingController? controller;
@@ -55,8 +54,6 @@ class _TextFWidgetState extends State<TextFWidget> {
                 : null,
             labelText: widget.HaedField,
             labelStyle: const TextStyle(color: Colors.white24),
-            hintText: widget.Hinte,
-            hintStyle: const TextStyle(color: Colors.white24),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: const BorderSide(color: Colors.blue, width: 2),

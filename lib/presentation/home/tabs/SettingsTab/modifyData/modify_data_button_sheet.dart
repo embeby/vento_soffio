@@ -34,8 +34,8 @@ class ModifyDataButtonSheet extends StatelessWidget {
                   return 'pleas enter your Name';
                 }
               },
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(hintText: 'enter your name'),
+              style: const TextStyle(color: Colors.black),
+              decoration: const InputDecoration(hintText: 'enter your name'),
             ),
           ),
           const SizedBox(
@@ -44,15 +44,15 @@ class ModifyDataButtonSheet extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22),
             child: TextFormField(
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               controller: phoneController,
-              decoration: InputDecoration(hintText: 'enter your Phone'),
+              decoration: const InputDecoration(hintText: 'enter your Phone'),
             ),
           ),
           const SizedBox(
             height: 60,
           ),
-          ElevatedButton(onPressed: () {}, child: Text('Save changes'))
+          ElevatedButton(onPressed: () {}, child: const Text('Save changes'))
         ],
       ),
     );
