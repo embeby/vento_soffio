@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:mostafa/aoth/LoginScreen/LoginScreen.dart';
-import 'package:mostafa/aoth/createScreen/createScreen.dart';
-import 'package:mostafa/aoth/splash/splash_screen.dart';
+import 'package:mostafa/auth/LoginScreen/LoginScreen.dart';
+import 'package:mostafa/auth/createScreen/createScreen.dart';
+import 'package:mostafa/auth/splash/splash_screen.dart';
+
 import 'package:mostafa/config/theme/my-theme.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
 import 'package:mostafa/provider/Settings_provider.dart';

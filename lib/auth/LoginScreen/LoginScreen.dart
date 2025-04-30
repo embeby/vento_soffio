@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mostafa/aoth/Widgets/Button.dart';
-import 'package:mostafa/aoth/Widgets/constants.dart';
+import 'package:mostafa/auth/Widgets/Button.dart';
+import 'package:mostafa/auth/Widgets/FirebaseAuthCode.dart';
+import 'package:mostafa/auth/Widgets/constants.dart';
+import 'package:mostafa/auth/Widgets/textFildWedgiet.dart';
 
-import 'package:mostafa/aoth/Widgets/textFildWedgiet.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
 import '../../core/utils/assets_magaer.dart';
 
@@ -60,28 +62,25 @@ class _loginScreenState extends State<loginScreen> {
                     return 'Pleas enter user email';
                   }
                   if (!isValidEmail(input)) {
-                    return"invaled";
+                    return "invaled";
                   }
                   return null;
                 },
               ),
               TextFWidget(
-                keyboard: TextInputType.visiblePassword,
-                HaedField: 'password',
-                IsPasswerd: true,
-                controller: PasswordController,
-                validator: (input){
-                  if( input == null || input.trim().isEmpty){
-                    return"pleas enter your Password";
-                  }
-                  if (input.length < 8) {
-                    return 'password must be more than 8  ';
-                  }
-                  return null;
-
-
-                }
-              ),
+                  keyboard: TextInputType.visiblePassword,
+                  HaedField: 'password',
+                  IsPasswerd: true,
+                  controller: PasswordController,
+                  validator: (input) {
+                    if (input == null || input.trim().isEmpty) {
+                      return "pleas enter your Password";
+                    }
+                    if (input.length < 8) {
+                      return 'password must be more than 8  ';
+                    }
+                    return null;
+                  }),
               const SizedBox(
                 height: 50,
               ),
@@ -143,7 +142,22 @@ class _loginScreenState extends State<loginScreen> {
     );
   }
 
-  Login(){
-    if(formKey.currentState?.validate()==true){}
+  Login() async {
+    if (formKey.currentState?.validate() == true) {
+      try{
+        UserCredential credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+          email: userNameController.text.trim(),
+          password: PasswordController.text);
+        print(credential.user?.email);
+        print(credential.user?.uid);
+      } on FirebaseAuthException catch (e) {
+        if (e.code == FirebaseAuthCode.userNotFound) {
+          print('No user found for that email.');
+        } else if (e.code == FirebaseAuthCode.wrongPassword) {
+          print('Wrong password provided for that user.');
+        }
+      }
+    }
   }
 }

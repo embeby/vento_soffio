@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mostafa/aoth/Widgets/Button.dart';
-import 'package:mostafa/aoth/Widgets/constants.dart';
-import 'package:mostafa/aoth/Widgets/textFildWedgiet.dart';
+import 'package:mostafa/auth/Widgets/Button.dart';
+import 'package:mostafa/auth/Widgets/FirebaseAuthCode.dart';
+import 'package:mostafa/auth/Widgets/constants.dart';
+import 'package:mostafa/auth/Widgets/textFildWedgiet.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
 import '../../core/utils/assets_magaer.dart';
 
@@ -53,7 +56,6 @@ class _createScreenState extends State<createScreen> {
                 height: 20.h,
               ),
               TextFWidget(
-
                 keyboard: TextInputType.name,
                 HaedField: 'Full name',
                 controller: FullNameController,
@@ -76,26 +78,25 @@ class _createScreenState extends State<createScreen> {
                     return 'Pleas enter user email';
                   }
                   if (!isValidEmail(input)) {
-                    return"invalid";
+                    return "invalid";
                   }
                   return null;
                 },
               ),
-              TextFWidget(
-                keyboard: TextInputType.phone,
-
-                HaedField: 'Phone Number',
-                controller: PhoneController,
-                validator: (input) {
-                  if (input == null || input.trim().isEmpty) {
-                    return 'Pleas enter your Phone';
-                  }
-                  if(input.length<11){
-                    return "Pleas enter your Phone " ;
-                  }
-                  return null;
-                },
-              ),
+              // TextFWidget(
+              //   keyboard: TextInputType.phone,
+              //   HaedField: 'Phone Number',
+              //   controller: PhoneController,
+              //   validator: (input) {
+              //     if (input == null || input.trim().isEmpty) {
+              //       return 'Pleas enter your Phone';
+              //     }
+              //     if (input.length < 11) {
+              //       return "Pleas enter your Phone ";
+              //     }
+              //     return null;
+              //   },
+              // ),
               TextFWidget(
                   keyboard: TextInputType.visiblePassword,
                   HaedField: 'Password',
@@ -184,6 +185,9 @@ class _createScreenState extends State<createScreen> {
                           textAlign: TextAlign.center))
                 ],
               ),
+              const SizedBox(
+                height: 30,
+              ),
             ],
           ),
         ),
@@ -191,7 +195,23 @@ class _createScreenState extends State<createScreen> {
     );
   }
 
-  createAccount(){
-   if( formKey.currentState?.validate()==true){}
+  createAccount() async {
+    if (formKey.currentState?.validate() == true) {
+      try {
+        UserCredential userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: userNameController.text.trim(),
+                password: PasswordController.text);
+
+      } on FirebaseAuthException catch (e) {
+        if (e.code == FirebaseAuthCode.weakPassword) {
+          print('The password provided is too weak.');
+        } else if (e.code == FirebaseAuthCode.emailAlreadyInUse) {
+          print('The account already exists for that email.');
+        }
+      } catch (error) {
+
+      }
+    }
   }
 }
