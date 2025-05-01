@@ -149,6 +149,7 @@ class _loginScreenState extends State<loginScreen> {
           .signInWithEmailAndPassword(
           email: userNameController.text.trim(),
           password: PasswordController.text);
+        Navigator.pushReplacementNamed(context, RoutesManager.homeRoute);
         print(credential.user?.email);
         print(credential.user?.uid);
       } on FirebaseAuthException catch (e) {

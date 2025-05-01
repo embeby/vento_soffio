@@ -13,10 +13,10 @@ class createScreen extends StatefulWidget {
   createScreen({super.key});
 
   @override
-  State<createScreen> createState() => _createScreenState();
+  State<createScreen> createState() => createScreenState();
 }
 
-class _createScreenState extends State<createScreen> {
+class createScreenState extends State<createScreen> {
   TextEditingController FullNameController = TextEditingController();
 
   TextEditingController userNameController = TextEditingController();
@@ -137,7 +137,7 @@ class _createScreenState extends State<createScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const Text('or signep with',
+               const Text('or signup with',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,
@@ -202,7 +202,7 @@ class _createScreenState extends State<createScreen> {
             .createUserWithEmailAndPassword(
                 email: userNameController.text.trim(),
                 password: PasswordController.text);
-
+        Navigator.pushReplacementNamed(context, RoutesManager.homeRoute);
       } on FirebaseAuthException catch (e) {
         if (e.code == FirebaseAuthCode.weakPassword) {
           print('The password provided is too weak.');
