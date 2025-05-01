@@ -15,10 +15,10 @@ class ModifyDataButtonSheet extends StatelessWidget {
           borderRadius: BorderRadius.circular(20), color: Colors.transparent),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             'Edit',
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900),
           ),

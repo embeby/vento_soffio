@@ -22,9 +22,13 @@ class _SettingsTabState extends State<SettingsTab> {
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingsProvider>(context, listen: true);
 
-    String selectedTheme = provider.currentTheme == ThemeMode.light ? AppLocalizations.of(context)!.light : AppLocalizations.of(context)!.dark;
+    String selectedTheme = provider.currentTheme == ThemeMode.light
+        ? AppLocalizations.of(context)!.light
+        : AppLocalizations.of(context)!.dark;
 
-    String selectedLang = provider.lan == 'en' ? AppLocalizations.of(context)!.english : AppLocalizations.of(context)!.arabic;
+    String selectedLang = provider.lan == 'en'
+        ? AppLocalizations.of(context)!.english
+        : AppLocalizations.of(context)!.arabic;
 
     return Scaffold(
       appBar: AppBar(
@@ -36,7 +40,7 @@ class _SettingsTabState extends State<SettingsTab> {
             margin: EdgeInsets.only(right: 20.w, left: 20.w, top: 10.h),
             shape: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
             color: const Color(0xFF2A2A2A),
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -83,9 +87,10 @@ class _SettingsTabState extends State<SettingsTab> {
           ),
           Card(
               margin: EdgeInsets.only(right: 20.w, left: 20.w, top: 10.h),
-              shape: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+              shape:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
               color: const Color(0xFF2A2A2A),
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 height: 440.h,
                 child: Padding(
@@ -99,7 +104,8 @@ class _SettingsTabState extends State<SettingsTab> {
                             const SizedBox(
                                 height: 40,
                                 child: Image(
-                                    image: AssetImage(AssetsManager.themeImage))),
+                                    image:
+                                        AssetImage(AssetsManager.themeImage))),
                             const SizedBox(width: 15),
                             Text(
                               AppLocalizations.of(context)!.theme,
@@ -122,13 +128,11 @@ class _SettingsTabState extends State<SettingsTab> {
                                 );
                               }).toList(),
                               onChanged: (newTheme) {
-                                if (newTheme == AppLocalizations.of(context)!.light) {
+                                if (newTheme ==
+                                    AppLocalizations.of(context)!.light) {
                                   provider.changeAppTheme(ThemeMode.light);
-
                                 } else {
                                   provider.changeAppTheme(ThemeMode.dark);
-
-
                                 }
                               },
                             )
@@ -143,7 +147,8 @@ class _SettingsTabState extends State<SettingsTab> {
                             const SizedBox(
                               height: 40,
                               child: Image(
-                                  image: AssetImage(AssetsManager.languageImage)),
+                                  image:
+                                      AssetImage(AssetsManager.languageImage)),
                             ),
                             const SizedBox(width: 15),
                             Text(
@@ -170,10 +175,9 @@ class _SettingsTabState extends State<SettingsTab> {
                                 );
                               }).toList(),
                               onChanged: (newLanguage) {
-                                if (newLanguage == AppLocalizations.of(context)!.english) {
-
-                                    provider.changeLan( 'en');
-
+                                if (newLanguage ==
+                                    AppLocalizations.of(context)!.english) {
+                                  provider.changeLan('en');
                                 } else {
                                   provider.changeLan('ar');
                                 }
@@ -192,7 +196,8 @@ class _SettingsTabState extends State<SettingsTab> {
                               const SizedBox(
                                 height: 40,
                                 child: Image(
-                                    image: AssetImage(AssetsManager.logUotImage)),
+                                    image:
+                                        AssetImage(AssetsManager.logUotImage)),
                               ),
                               const SizedBox(width: 15),
                               Text(

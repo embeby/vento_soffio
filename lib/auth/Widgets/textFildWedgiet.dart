@@ -48,8 +48,8 @@ class _TextFWidgetState extends State<TextFWidget> {
                       });
                     },
                     icon: isObscured
-                        ? Icon(Icons.visibility_off_outlined)
-                        : Icon(Icons.visibility_outlined),
+                        ? const Icon(Icons.visibility_off_outlined)
+                        : const Icon(Icons.visibility_outlined),
                   )
                 : null,
             labelText: widget.HaedField,

@@ -6,7 +6,7 @@ import 'package:mostafa/presentation/home/tabs/serviseTab/servise_tab.dart';
 import '../../core/utils/assets_magaer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HomeScreen extends StatefulWidget {
-   HomeScreen({super.key});
+   const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -14,10 +14,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
    List<Widget> tabs =[
-     HomeTab(),
-     ServiseTab(),
-     ChatTab(),
-     SettingsTab(),
+     const HomeTab(),
+     const ServiseTab(),
+     const ChatTab(),
+     const SettingsTab(),
    ];
 
    int selectedIndex=0;
@@ -37,16 +37,16 @@ class _HomeScreenState extends State<HomeScreen> {
         items:   [
            BottomNavigationBarItem(
              backgroundColor: Colors.black,
-             icon: ImageIcon(AssetImage(AssetsManager.HomeIcon)), label:AppLocalizations.of(context)!.home ,),
+             icon: const ImageIcon(AssetImage(AssetsManager.HomeIcon)), label:AppLocalizations.of(context)!.home ,),
            BottomNavigationBarItem(
              backgroundColor: Colors.black,
-             icon: ImageIcon(AssetImage(AssetsManager.ServiceIcon)), label: AppLocalizations.of(context)!.service,),
+             icon: const ImageIcon(AssetImage(AssetsManager.ServiceIcon)), label: AppLocalizations.of(context)!.service,),
            BottomNavigationBarItem(
              backgroundColor: Colors.black,
-             icon: ImageIcon(AssetImage(AssetsManager.messageIcon)), label: AppLocalizations.of(context)!.chat,),
+             icon: const ImageIcon(AssetImage(AssetsManager.messageIcon)), label: AppLocalizations.of(context)!.chat,),
            BottomNavigationBarItem(
              backgroundColor: Colors.black,
-             icon: Icon(Icons.settings_outlined), label: AppLocalizations.of(context)!.settings,),
+             icon: const Icon(Icons.settings_outlined), label: AppLocalizations.of(context)!.settings,),
             ],
       ),
       body: tabs[selectedIndex],

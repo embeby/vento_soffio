@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
 import '../../../../data/dataStatec.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class serviceCard extends StatelessWidget {
   final DataStatic dataStatic;
 
-  serviceCard({super.key, required this.dataStatic});
+  const serviceCard({super.key, required this.dataStatic});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class serviceCard extends StatelessWidget {
             color: const Color(0xff1C2765),
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: 200.h,
                   child: Image.asset(
@@ -53,9 +54,9 @@ class serviceCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(50),
                           ),
                         ),
-                        child:  Text(
+                        child: Text(
                           AppLocalizations.of(context)!.more,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 22,
                               fontWeight: FontWeight.bold),

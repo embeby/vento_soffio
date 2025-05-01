@@ -11,7 +11,7 @@ class ChatScreen extends StatelessWidget {
       appBar: AppBar(title:  Text(AppLocalizations.of(context)!.customerService)),
       body: Column(
         children: [
-          Spacer(),
+          const Spacer(),
           Row(
             children: [
               Expanded(
@@ -20,6 +20,7 @@ class ChatScreen extends StatelessWidget {
                     if(input==null||input.trim().isEmpty){
                       return '';
                     }
+                    return null;
                   },
                   style: TextStyle(
                       color: Colors.white,
@@ -28,17 +29,17 @@ class ChatScreen extends StatelessWidget {
                   decoration: InputDecoration(
 
                     hintText: AppLocalizations.of(context)!.send,
-                    hintStyle: TextStyle(color: Colors.white60),
+                    hintStyle: const TextStyle(color: Colors.white60),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2, color: Colors.white),
+                        borderSide: const BorderSide(width: 2, color: Colors.white),
                         borderRadius: BorderRadius.circular(50)),
                     enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2, color: Colors.white),
+                        borderSide: const BorderSide(width: 2, color: Colors.white),
                         borderRadius: BorderRadius.circular(50)),
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 70,
                 width: 70,
                 child: IconButton(

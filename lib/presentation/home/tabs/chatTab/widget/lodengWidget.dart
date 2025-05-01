@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class TaskProgressExample extends StatefulWidget {
   @override
   _TaskProgressExampleState createState() => _TaskProgressExampleState();
@@ -20,9 +21,10 @@ class _TaskProgressExampleState extends State<TaskProgressExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 20,),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
         child: Column(
-
           children: [
             LinearProgressIndicator(
               value: progress,
@@ -30,14 +32,14 @@ class _TaskProgressExampleState extends State<TaskProgressExample> {
               backgroundColor: Colors.grey[300],
               color: Colors.blue,
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Text(
-              "${(progress * 100).toInt()}${ AppLocalizations.of(context)!.mission}",
-              style: TextStyle(fontSize: 22,color: Colors.white),
+              "${(progress * 100).toInt()}${AppLocalizations.of(context)!.mission}",
+              style: const TextStyle(fontSize: 22, color: Colors.white),
             ),
             ElevatedButton(
               onPressed: completeTask,
-              child: Text("أتمم مهمة"),
+              child: const Text("أتمم مهمة"),
             ),
           ],
         ),

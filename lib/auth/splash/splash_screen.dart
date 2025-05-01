@@ -9,31 +9,31 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(
-      Duration(seconds: 2),
+      const Duration(seconds: 2),
       () {
         Navigator.pushReplacementNamed(context, RoutesManager.loginRoute);
       },
     );
     return Scaffold(
-       backgroundColor: Color(0xFF0C0077),
+       backgroundColor: const Color(0xFF0C0077),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Spacer(flex: 9),
-          Container(
+          const Spacer(flex: 9),
+          SizedBox(
             height: 300.r,
             width: double.infinity.r,
             child: Image.asset(AssetsManager.logoSplash,),
           ),
-          Spacer(flex: 9),
-          Container(
+          const Spacer(flex: 9),
+          SizedBox(
               height: 20.r,
               width: double.infinity.r,
             child: Image.asset(
               AssetsManager.logoText,
             ),
           ),
-          Spacer(
+          const Spacer(
             flex: 1,
           )
         ],

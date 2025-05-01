@@ -18,8 +18,7 @@ class _ChatTabState extends State<ChatTab> {
       appBar: AppBar(title: Text(AppLocalizations.of(context)!.chat)),
       body: Column(
         children: [
-          Expanded(
-              child: TaskProgressExample()),
+          Expanded(child: TaskProgressExample()),
           const Divider(
             color: Colors.white60,
             thickness: 2,
@@ -62,9 +61,10 @@ class _ChatTabState extends State<ChatTab> {
             color: Colors.white60,
             thickness: 2,
           ),
-           const Expanded(flex: 4,
-             child: SizedBox(),
-           ),
+          const Expanded(
+            flex: 4,
+            child: SizedBox(),
+          ),
         ],
       ),
     );

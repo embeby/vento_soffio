@@ -41,7 +41,7 @@ class detailsScreen extends StatelessWidget {
                       )),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Text(
                     data.description,
                     style: Theme.of(context).textTheme.bodyLarge,
@@ -56,22 +56,22 @@ class detailsScreen extends StatelessWidget {
             children: [
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: ElevatedButton(
                     onPressed: () {
                       _launchUrl();
                     },
-                    child: Text(
-                      AppLocalizations.of(context)!.requestService,
-                      style: TextStyle(fontSize: 22, color: Colors.white),
-                    ),
                     style: ElevatedButton.styleFrom(
-                      minimumSize: Size(200, 50),
-                      maximumSize: Size(300, 80),
-                      backgroundColor: Color(0xFF0024FF),
+                      minimumSize: const Size(200, 50),
+                      maximumSize: const Size(300, 80),
+                      backgroundColor: const Color(0xFF0024FF),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
+                    ),
+                    child: Text(
+                      AppLocalizations.of(context)!.requestService,
+                      style: const TextStyle(fontSize: 22, color: Colors.white),
                     ),
                   ),
                 ),
