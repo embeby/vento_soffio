@@ -52,8 +52,8 @@ class _TextFWidgetState extends State<TextFWidget> {
                         : const Icon(Icons.visibility_outlined),
                   )
                 : null,
-            labelText: widget.HaedField,
-            labelStyle: const TextStyle(color: Colors.white24),
+             labelText: widget.HaedField,
+            labelStyle:  TextStyle(color: Colors.white24),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: const BorderSide(color: Colors.blue, width: 2),

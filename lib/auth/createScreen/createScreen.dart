@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mostafa/auth/Widgets/Button.dart';
 import 'package:mostafa/auth/Widgets/FirebaseAuthCode.dart';
 import 'package:mostafa/auth/Widgets/constants.dart';
+import 'package:mostafa/auth/Widgets/customLoading.dart';
 import 'package:mostafa/auth/Widgets/textFildWedgiet.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
 import '../../core/utils/assets_magaer.dart';
@@ -137,7 +138,7 @@ class createScreenState extends State<createScreen> {
               const SizedBox(
                 height: 20,
               ),
-               const Text('or signup with',
+              const Text('or signup with',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,
@@ -198,20 +199,25 @@ class createScreenState extends State<createScreen> {
   createAccount() async {
     if (formKey.currentState?.validate() == true) {
       try {
+        showDialog(context: context, builder: (context) => customLoading());
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
                 email: userNameController.text.trim(),
                 password: PasswordController.text);
-        Navigator.pushReplacementNamed(context, RoutesManager.homeRoute);
+        Navigator.pop(context);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          RoutesManager.homeRoute,
+          (route) => false,
+        );
       } on FirebaseAuthException catch (e) {
+        Navigator.pop(context);
         if (e.code == FirebaseAuthCode.weakPassword) {
           print('The password provided is too weak.');
         } else if (e.code == FirebaseAuthCode.emailAlreadyInUse) {
           print('The account already exists for that email.');
         }
-      } catch (error) {
-
-      }
+      } catch (error) {}
     }
   }
 }

@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mostafa/auth/Widgets/Button.dart';
 import 'package:mostafa/auth/Widgets/FirebaseAuthCode.dart';
 import 'package:mostafa/auth/Widgets/constants.dart';
+import 'package:mostafa/auth/Widgets/customLoading.dart';
+import 'package:mostafa/auth/Widgets/customMassge.dart';
 import 'package:mostafa/auth/Widgets/textFildWedgiet.dart';
 
 import 'package:mostafa/core/utils/routes_manager.dart';
@@ -142,18 +144,37 @@ class _loginScreenState extends State<loginScreen> {
 
   Login() async {
     if (formKey.currentState?.validate() == true) {
-      try{
+      try {
+        showDialog(context: context, builder: (context) => customLoading());
         UserCredential credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-          email: userNameController.text.trim(),
-          password: PasswordController.text);
-        Navigator.pushReplacementNamed(context, RoutesManager.homeRoute);
+            .signInWithEmailAndPassword(
+                email: userNameController.text.trim(),
+                password: PasswordController.text);
+        Navigator.pop(context);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          RoutesManager.homeRoute,
+          (route) => false,
+        );
         print(credential.user?.email);
         print(credential.user?.uid);
       } on FirebaseAuthException catch (e) {
+        Navigator.pop(context);
         if (e.code == FirebaseAuthCode.userNotFound) {
+          showDialog(
+            context: context,
+            builder: (context) => customMessage(
+              message: 'No user found for that email.',
+            ),
+          );
           print('No user found for that email.');
         } else if (e.code == FirebaseAuthCode.wrongPassword) {
+          showDialog(
+            context: context,
+            builder: (context) => customMessage(
+              message: 'Wrong password provided for that user.',
+            ),
+          );
           print('Wrong password provided for that user.');
         }
       }

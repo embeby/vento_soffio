@@ -167,7 +167,7 @@ class _SettingsTabState extends State<SettingsTab> {
                               dropdownColor: Colors.black,
                               items: <String>[
                                 AppLocalizations.of(context)!.english,
-                                AppLocalizations.of(context)!.arabic
+                                AppLocalizations.of(context)!.arabic,
                               ].map((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -198,6 +198,29 @@ class _SettingsTabState extends State<SettingsTab> {
                                 child: Image(
                                     image:
                                         AssetImage(AssetsManager.logUotImage)),
+                              ),
+                              const SizedBox(width: 15),
+                              Text(
+                                AppLocalizations.of(context)!.aboutUs,
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 22),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const Divider(color: Colors.white38, thickness: 2),
+                      InkWell(
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Row(
+                            children: [
+                              const SizedBox(
+                                height: 40,
+                                child: Image(
+                                    image:
+                                    AssetImage(AssetsManager.logUotImage)),
                               ),
                               const SizedBox(width: 15),
                               Text(
