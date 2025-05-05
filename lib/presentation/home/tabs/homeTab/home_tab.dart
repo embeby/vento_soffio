@@ -7,26 +7,19 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
 
-            // width: double.infinity,
-            // height: 250.h,
-            decoration: const BoxDecoration(
-                // color: Color(0xFF0C0077),
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(25),
-                    bottomRight: Radius.circular(25))),
-            child: Image.asset(
-              AssetsManager.logoSplash,
-              height: 200.h,
-              width: double.infinity,
-            ),
+      children: [
+        Container(
+          child: Image.asset(
+            AssetsManager.logoSplash,
+            height: 200.h,
+            width: double.infinity,
           ),
-          Column(
+        ),
+        Expanded(
+          child: ListView(
             children: [
               Text(
                 AppLocalizations.of(context)!.welcomeT,
@@ -34,20 +27,22 @@ class HomeTab extends StatelessWidget {
                     color: Colors.white,
                     fontSize: 32,
                     fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
-
+          
               Padding(
                 padding: const EdgeInsets.all(3.0),
                 child: Text(
+
                   AppLocalizations.of(context)!.companyIntroduction,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
             ],
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

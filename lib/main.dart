@@ -14,6 +14,6 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp( ChangeNotifierProvider(
-      create: (context) => SettingsProvider(),
+      create: (context) => SettingsProvider()..getTheme(),
       child: const MyApp()));
 }

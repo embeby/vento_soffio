@@ -3,9 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mostafa/core/utils/assets_magaer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mostafa/core/utils/routes_manager.dart';
 import 'package:mostafa/presentation/home/tabs/SettingsTab/modifyData/modify_data_button_sheet.dart';
 import 'package:mostafa/provider/Settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({super.key});
@@ -21,6 +23,12 @@ class _SettingsTabState extends State<SettingsTab> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingsProvider>(context, listen: true);
+    final Uri _url = Uri.parse('https://flutter.dev');
+    Future<void> _launchUrl() async {
+      if (!await launchUrl(_url)) {
+        throw Exception('Could not launch $_url');
+      }
+    }
 
     String selectedTheme = provider.currentTheme == ThemeMode.light
         ? AppLocalizations.of(context)!.light
@@ -45,20 +53,21 @@ class _SettingsTabState extends State<SettingsTab> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      ModifyDataButtonSheet.show(context);
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Image(image: AssetImage(AssetsManager.EditImage))
-                        ],
-                      ),
-                    ),
-                  ),
+                  const SizedBox(height: 30,),
+                  // InkWell(
+                  //   onTap: () {
+                  //     ModifyDataButtonSheet.show(context);
+                  //   },
+                  //   child: const Padding(
+                  //     padding: EdgeInsets.all(8.0),
+                  //     child: Row(
+                  //       mainAxisAlignment: MainAxisAlignment.end,
+                  //       children: [
+                  //         Image(image: AssetImage(AssetsManager.EditImage))
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                   InkWell(
                       onTap: () {},
                       child: const Image(
@@ -188,7 +197,9 @@ class _SettingsTabState extends State<SettingsTab> {
                       ),
                       const Divider(color: Colors.white38, thickness: 2),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          _launchUrl();
+                        },
                         child: Padding(
                           padding: const EdgeInsets.all(15.0),
                           child: Row(
@@ -211,7 +222,9 @@ class _SettingsTabState extends State<SettingsTab> {
                       ),
                       const Divider(color: Colors.white38, thickness: 2),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacementNamed(context,RoutesManager.loginRoute);
+                        },
                         child: Padding(
                           padding: const EdgeInsets.all(15.0),
                           child: Row(

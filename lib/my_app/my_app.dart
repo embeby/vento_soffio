@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
             RoutesManager.detailsRoute: (_) => const detailsScreen(),
             RoutesManager.ChatRoute: (_) => ChatScreen(),
           },
-          initialRoute: RoutesManager.splashRoute,
+          initialRoute: RoutesManager.homeRoute,
         );
       },
     );
