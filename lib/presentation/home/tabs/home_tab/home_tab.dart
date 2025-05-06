@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mostafa/core/utils/assets_magaer.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../../core/utils/assets_manager.dart';
+import '../../../../l10n/app_localizations.dart';
+
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
 
@@ -9,14 +11,11 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-
       children: [
-        Container(
-          child: Image.asset(
-            AssetsManager.logoSplash,
-            height: 200.h,
-            width: double.infinity,
-          ),
+        Image.asset(
+          AssetsManager.logoSplash,
+          height: 200.h,
+          width: double.infinity,
         ),
         Expanded(
           child: ListView(
@@ -29,11 +28,9 @@ class HomeTab extends StatelessWidget {
                     fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-          
               Padding(
                 padding: const EdgeInsets.all(3.0),
                 child: Text(
-
                   AppLocalizations.of(context)!.companyIntroduction,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge,

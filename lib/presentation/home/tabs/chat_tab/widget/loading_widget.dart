@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../../../l10n/app_localizations.dart';
 
 class TaskProgressExample extends StatefulWidget {
+  const TaskProgressExample({super.key});
+
   @override
-  _TaskProgressExampleState createState() => _TaskProgressExampleState();
+  TaskProgressExampleState createState() => TaskProgressExampleState();
 }
 
-class _TaskProgressExampleState extends State<TaskProgressExample> {
+class TaskProgressExampleState extends State<TaskProgressExample> {
   double progress = 0.0; // من 0.0 إلى 1.0
 
   void completeTask() {
@@ -37,10 +40,10 @@ class _TaskProgressExampleState extends State<TaskProgressExample> {
               "${(progress * 100).toInt()}${AppLocalizations.of(context)!.mission}",
               style: const TextStyle(fontSize: 22, color: Colors.white),
             ),
-            ElevatedButton(
-              onPressed: completeTask,
-              child: const Text("أتمم مهمة"),
-            ),
+            // ElevatedButton(
+            //   onPressed: completeTask,
+            //   child: const Text("أتمم مهمة"),
+            // ),
           ],
         ),
       ),

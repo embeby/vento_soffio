@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mostafa/core/utils/assets_magaer.dart';
+import 'package:mostafa/core/utils/assets_manager.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mostafa/presentation/home/tabs/chatTab/widget/lodengWidget.dart';
+import 'package:mostafa/presentation/home/tabs/chat_tab/widget/loading_widget.dart';
+
+import '../../../../l10n/app_localizations.dart';
 
 class ChatTab extends StatefulWidget {
   const ChatTab({super.key});
@@ -18,14 +19,14 @@ class _ChatTabState extends State<ChatTab> {
       appBar: AppBar(title: Text(AppLocalizations.of(context)!.chat)),
       body: Column(
         children: [
-          Expanded(child: TaskProgressExample()),
+          const Expanded(child: TaskProgressExample()),
           const Divider(
             color: Colors.white60,
             thickness: 2,
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, RoutesManager.ChatRoute);
+              Navigator.pushNamed(context, RoutesManager.chatRoute);
             },
             child: Row(
               children: [

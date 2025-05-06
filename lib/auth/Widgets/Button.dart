@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mostafa/core/utils/routes_manager.dart';
-typedef authFunction = void Function();
-class EButton extends StatelessWidget {
-  String childButton;
-  String routeNme;
-   authFunction onClick;
 
-  EButton({super.key, required this.childButton,required this.onClick, required this.routeNme});
+typedef AuthFunction = void Function();
+
+class EButton extends StatelessWidget {
+  final String childButton;
+  final String routeNme;
+  final AuthFunction onClick;
+
+  const EButton(
+      {super.key,
+      required this.childButton,
+      required this.onClick,
+      required this.routeNme});
 
   @override
   Widget build(BuildContext context) {

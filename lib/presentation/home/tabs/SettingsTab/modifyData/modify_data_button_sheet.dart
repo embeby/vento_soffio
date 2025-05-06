@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-
 class ModifyDataButtonSheet extends StatelessWidget {
   ModifyDataButtonSheet({super.key});
 
-  TextEditingController nameUController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+  final TextEditingController nameUController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +32,7 @@ class ModifyDataButtonSheet extends StatelessWidget {
                 if (input == null) {
                   return 'pleas enter your Name';
                 }
+                return null;
               },
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(hintText: 'enter your name'),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../../../../../data/dataStatec.dart';
 
-class detailsScreen extends StatelessWidget {
-  const detailsScreen({
+import '../../../../../data/data_states.dart';
+import '../../../../../l10n/app_localizations.dart';
+
+class DetailsScreen extends StatelessWidget {
+  const DetailsScreen({
     super.key,
   });
 
@@ -13,10 +14,10 @@ class detailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final data = ModalRoute.of(context)?.settings.arguments as DataStatic;
 
-    final Uri _url = Uri.parse('https://flutter.dev');
+    final Uri url = Uri.parse('https://flutter.dev');
     Future<void> _launchUrl() async {
-      if (!await launchUrl(_url)) {
-        throw Exception('Could not launch $_url');
+      if (!await launchUrl(url)) {
+        throw Exception('Could not launch $url');
       }
     }
 
@@ -32,7 +33,7 @@ class detailsScreen extends StatelessWidget {
             child: ListView(
               children: [
                 Center(
-                  child: Container(
+                  child: SizedBox(
                       width: double.infinity,
                       height: 250.h,
                       child: Image(
@@ -77,7 +78,7 @@ class detailsScreen extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

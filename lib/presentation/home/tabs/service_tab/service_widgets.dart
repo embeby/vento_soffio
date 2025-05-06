@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
-import '../../../../data/dataStatec.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class serviceCard extends StatelessWidget {
+import '../../../../data/data_states.dart';
+import '../../../../l10n/app_localizations.dart';
+
+class ServiceCard extends StatelessWidget {
   final DataStatic dataStatic;
 
-  const serviceCard({super.key, required this.dataStatic});
+  const ServiceCard({super.key, required this.dataStatic});
 
   @override
   Widget build(BuildContext context) {

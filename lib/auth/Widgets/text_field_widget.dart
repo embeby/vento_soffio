@@ -4,20 +4,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 typedef Validator = String? Function(String?);
 
 class TextFWidget extends StatefulWidget {
-  TextFWidget(
+  const TextFWidget(
       {super.key,
-      required this.HaedField,
+      required this.headField,
       this.validator,
-      required this.keyboard,
+      this.keyboard,
       this.controller,
-      this.IsPasswerd = false});
+      this.isPassword = false});
 
-  String HaedField;
+  final String headField;
 
-  TextInputType keyboard;
-  Validator? validator;
-  TextEditingController? controller;
-  bool IsPasswerd;
+  final TextInputType? keyboard;
+  final Validator? validator;
+  final TextEditingController? controller;
+  final bool isPassword;
 
   @override
   State<TextFWidget> createState() => _TextFWidgetState();
@@ -36,11 +36,11 @@ class _TextFWidgetState extends State<TextFWidget> {
           validator: widget.validator,
           controller: widget.controller,
           keyboardType: widget.keyboard,
-          obscureText: widget.IsPasswerd == true ? isObscured : false,
+          obscureText: widget.isPassword == true ? isObscured : false,
           style: const TextStyle(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.w300),
           decoration: InputDecoration(
-            suffixIcon: widget.IsPasswerd
+            suffixIcon: widget.isPassword
                 ? IconButton(
                     onPressed: () {
                       setState(() {
@@ -52,8 +52,8 @@ class _TextFWidgetState extends State<TextFWidget> {
                         : const Icon(Icons.visibility_outlined),
                   )
                 : null,
-             labelText: widget.HaedField,
-            labelStyle:  TextStyle(color: Colors.white24),
+            labelText: widget.headField,
+            labelStyle: const TextStyle(color: Colors.white24),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: const BorderSide(color: Colors.blue, width: 2),

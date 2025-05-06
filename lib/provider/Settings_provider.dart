@@ -27,15 +27,16 @@ class SettingsProvider extends ChangeNotifier {
     }
   }
 
-
-  void getTheme()async{
+  void getTheme() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String theme =prefs.getString('theme')??'dark';
-    if( theme=='light'){
-      currentTheme=ThemeMode.light;
-    }else{
-      currentTheme=ThemeMode.dark;
+    String theme = prefs.getString('theme') ?? 'dark';
+    if (theme == 'light') {
+      currentTheme = ThemeMode.light;
+    } else {
+      currentTheme = ThemeMode.dark;
     }
-  } @override
-   notifyListeners();
+  }
+
+  @override
+  notifyListeners();
 }

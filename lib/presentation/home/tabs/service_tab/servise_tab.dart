@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mostafa/data/dataStatec.dart';
-import 'package:mostafa/presentation/home/tabs/serviseTab/serviesWidgets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mostafa/data/data_states.dart';
+import 'package:mostafa/presentation/home/tabs/service_tab/service_widgets.dart';
 
-class ServiseTab extends StatelessWidget {
-  const ServiseTab({super.key});
+import '../../../../l10n/app_localizations.dart';
+
+class ServiceTab extends StatelessWidget {
+  const ServiceTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class ServiseTab extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) =>
-                  serviceCard(dataStatic: dataStatic[index]),
+                  ServiceCard(dataStatic: dataStatic[index]),
               itemCount: dataStatic.length,
             ),
           ),

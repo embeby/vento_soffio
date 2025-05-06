@@ -85,5 +85,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'vento-soffio.firebasestorage.app',
     measurementId: 'G-ZZRW4961SQ',
   );
-
 }

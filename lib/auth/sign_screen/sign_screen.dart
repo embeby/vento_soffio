@@ -1,33 +1,32 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mostafa/auth/Widgets/Button.dart';
-import 'package:mostafa/auth/Widgets/FirebaseAuthCode.dart';
+import 'package:mostafa/auth/Widgets/button.dart';
 import 'package:mostafa/auth/Widgets/constants.dart';
-import 'package:mostafa/auth/Widgets/customLoading.dart';
-import 'package:mostafa/auth/Widgets/textFildWedgiet.dart';
+import 'package:mostafa/auth/Widgets/custom_loading.dart';
+import 'package:mostafa/auth/Widgets/firebase_auth_code.dart';
+import 'package:mostafa/auth/Widgets/text_field_widget.dart';
 import 'package:mostafa/core/utils/routes_manager.dart';
-import '../../core/utils/assets_magaer.dart';
 
-class createScreen extends StatefulWidget {
-  createScreen({super.key});
+import '../../core/utils/assets_manager.dart';
+import '../../presentation/home/tabs/SettingsTab/model.dart';
+import '../../presentation/home/tabs/SettingsTab/repo.dart';
+
+class SignScreen extends StatefulWidget {
+  const SignScreen({super.key});
 
   @override
-  State<createScreen> createState() => createScreenState();
+  State<SignScreen> createState() => SignScreenState();
 }
 
-class createScreenState extends State<createScreen> {
-  TextEditingController FullNameController = TextEditingController();
-
+class SignScreenState extends State<SignScreen> {
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController userNameController = TextEditingController();
-
-  TextEditingController PasswordController = TextEditingController();
-
+  TextEditingController passwordController = TextEditingController();
   TextEditingController rePasswordController = TextEditingController();
-
-  TextEditingController PhoneController = TextEditingController();
-
+  TextEditingController phoneController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -58,8 +57,22 @@ class createScreenState extends State<createScreen> {
               ),
               TextFWidget(
                 keyboard: TextInputType.name,
-                HaedField: 'Full name',
-                controller: FullNameController,
+                headField: 'Full name',
+                controller: fullNameController,
+                validator: (input) {
+                  if (input == null || input.trim().isEmpty) {
+                    return 'Pleas enter full Name';
+                  }
+                  if (input.length < 8) {
+                    return 'Full name must be more than 10 characters';
+                  }
+                  return null;
+                },
+              ),
+              TextFWidget(
+                keyboard: TextInputType.text,
+                headField: 'User name',
+                controller: userNameController,
                 validator: (input) {
                   if (input == null || input.trim().isEmpty) {
                     return 'Pleas enter full Name';
@@ -72,8 +85,8 @@ class createScreenState extends State<createScreen> {
               ),
               TextFWidget(
                 keyboard: TextInputType.emailAddress,
-                HaedField: 'E-mail ',
-                controller: userNameController,
+                headField: 'E-mail ',
+                controller: emailController,
                 validator: (input) {
                   if (input == null || input.trim().isEmpty) {
                     return 'Pleas enter user email';
@@ -84,25 +97,25 @@ class createScreenState extends State<createScreen> {
                   return null;
                 },
               ),
-              // TextFWidget(
-              //   keyboard: TextInputType.phone,
-              //   HaedField: 'Phone Number',
-              //   controller: PhoneController,
-              //   validator: (input) {
-              //     if (input == null || input.trim().isEmpty) {
-              //       return 'Pleas enter your Phone';
-              //     }
-              //     if (input.length < 11) {
-              //       return "Pleas enter your Phone ";
-              //     }
-              //     return null;
-              //   },
-              // ),
+              TextFWidget(
+                keyboard: TextInputType.phone,
+                headField: 'Phone Number',
+                controller: phoneController,
+                validator: (input) {
+                  if (input == null || input.trim().isEmpty) {
+                    return 'Pleas enter Phone Number';
+                  }
+                  if (input.length == 10) {
+                    return 'Phone Number must be 11 characters';
+                  }
+                  return null;
+                },
+              ),
               TextFWidget(
                   keyboard: TextInputType.visiblePassword,
-                  HaedField: 'Password',
-                  IsPasswerd: true,
-                  controller: PasswordController,
+                  headField: 'Password',
+                  isPassword: true,
+                  controller: passwordController,
                   validator: (input) {
                     if (input == null || input.trim().isEmpty) {
                       return 'Pleas enter password';
@@ -114,14 +127,13 @@ class createScreenState extends State<createScreen> {
                   }),
               TextFWidget(
                 keyboard: TextInputType.visiblePassword,
-                HaedField: 'Confirm',
-                IsPasswerd: true,
+                headField: 'Confirm',
+                isPassword: true,
                 controller: rePasswordController,
                 validator: (input) {
-                  if (input != PasswordController.text) {
+                  if (input != passwordController.text) {
                     return 'Should be same as password';
                   }
-
                   return null;
                 },
               ),
@@ -138,29 +150,29 @@ class createScreenState extends State<createScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const Text('or signup with',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                SizedBox(
-                  height: 60,
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(AssetsManager.iconGoogle)),
-                ),
-                SizedBox(
-                  height: 60,
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(AssetsManager.iconFacebook)),
-                ),
-              ]),
+              // const Text('or signup with',
+              //     style: TextStyle(
+              //         color: Colors.white,
+              //         fontSize: 22,
+              //         fontWeight: FontWeight.bold),
+              //     textAlign: TextAlign.center),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              //   SizedBox(
+              //     height: 60,
+              //     child: IconButton(
+              //         onPressed: () {},
+              //         icon: Image.asset(AssetsManager.iconGoogle)),
+              //   ),
+              //   SizedBox(
+              //     height: 60,
+              //     child: IconButton(
+              //         onPressed: () {},
+              //         icon: Image.asset(AssetsManager.iconFacebook)),
+              //   ),
+              // ]),
               const SizedBox(
                 height: 20,
               ),
@@ -199,25 +211,50 @@ class createScreenState extends State<createScreen> {
   createAccount() async {
     if (formKey.currentState?.validate() == true) {
       try {
-        showDialog(context: context, builder: (context) => customLoading());
+        showDialog(
+            context: context, builder: (context) => const CustomLoading());
+
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
-                email: userNameController.text.trim(),
-                password: PasswordController.text);
-        Navigator.pop(context);
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          RoutesManager.homeRoute,
-          (route) => false,
-        );
-      } on FirebaseAuthException catch (e) {
-        Navigator.pop(context);
-        if (e.code == FirebaseAuthCode.weakPassword) {
-          print('The password provided is too weak.');
-        } else if (e.code == FirebaseAuthCode.emailAlreadyInUse) {
-          print('The account already exists for that email.');
+                email: emailController.text.trim(),
+                password: passwordController.text);
+
+        if (userCredential.user != null) {
+          UserEntity newUser = UserEntity(
+            id: userCredential.user!.uid,
+            username: userNameController.text.trim(),
+            phoneNumber: phoneController.text.trim(),
+            fullName: fullNameController.text.trim(),
+            email: userCredential.user!.email ?? "",
+            role: 'user',
+          );
+
+          await UserRepository(
+            firestore: FirebaseFirestore.instance,
+            auth: FirebaseAuth.instance,
+          ).saveUser(newUser);
         }
-      } catch (error) {}
+
+        if (mounted) {
+          Navigator.pop(context);
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            RoutesManager.homeRoute,
+            (route) => false,
+          );
+        }
+      } on FirebaseAuthException catch (e) {
+        if (mounted) {
+          Navigator.pop(context);
+        }
+        if (e.code == FirebaseAuthCode.weakPassword) {
+          print('كلمة المرور ضعيفة جدًا.');
+        } else if (e.code == FirebaseAuthCode.emailAlreadyInUse) {
+          print('هذا البريد الإلكتروني مستخدم بالفعل.');
+        }
+      } catch (error) {
+        print("خطأ أثناء إنشاء الحساب: $error");
+      }
     }
   }
 }

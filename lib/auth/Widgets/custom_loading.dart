@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class customLoading extends StatelessWidget {
-  const customLoading({super.key});
+class CustomLoading extends StatelessWidget {
+  const CustomLoading({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Container(
+      content: SizedBox(
         height: 70.h,
-        child: Center(
+        child: const Center(
           child: CircularProgressIndicator(),
         ),
       ),
