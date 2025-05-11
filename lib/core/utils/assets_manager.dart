@@ -5,8 +5,7 @@ class AssetsManager {
   static const String iconGoogle = 'assets/images/Google.png';
   static const String iconFacebook = 'assets/images/Facebook logo 2019.png';
   static const String serviceIcon = 'assets/images/icon sarves w.png';
-  static const String messageIcon =
-      'assets/images/message-removebg-preview 1.png';
+  static const String messageIcon ='assets/images/message-removebg-preview 1.png';
   static const String homeIcon = 'assets/images/Home-removebg-preview 1.png';
   static const String webImage = 'assets/images/web.png';
   static const String mobileImage = 'assets/images/Mobile App.webp';
@@ -19,4 +18,5 @@ class AssetsManager {
   static const String languageImage = 'assets/images/languege.png';
   static const String themeImage = 'assets/images/theme.png';
   static const String logUotImage = 'assets/images/logUot.png';
+  static const String aboutUsImage = 'assets/images/AboutUs.png';
 }

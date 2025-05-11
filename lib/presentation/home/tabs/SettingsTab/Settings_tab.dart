@@ -212,7 +212,7 @@ class _SettingsTabState extends State<SettingsTab> {
                                         height: 40,
                                         child: Image(
                                             image: AssetImage(
-                                                AssetsManager.logUotImage)),
+                                                AssetsManager.aboutUsImage)),
                                       ),
                                       const SizedBox(width: 15),
                                       Text(

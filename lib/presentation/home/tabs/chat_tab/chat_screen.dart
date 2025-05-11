@@ -77,7 +77,7 @@ class ChatScreenUser1State extends State<ChatScreenUser1> {
 
                     final timestamp = msg['timestamp'] as Timestamp?;
                     final timeString = timestamp != null
-                        ? DateFormat('dd/MM/yyyy – hh:mm a')
+                        ? DateFormat(' hh:mm a')
                             .format(timestamp.toDate())
                         : '...';
 
@@ -86,21 +86,22 @@ class ChatScreenUser1State extends State<ChatScreenUser1> {
                           isMe ? Alignment.centerRight : Alignment.centerLeft,
                       child: Container(
                         margin: const EdgeInsets.symmetric(
-                            vertical: 4, horizontal: 8),
-                        padding: const EdgeInsets.all(12),
+                            vertical: 4, horizontal: 10),
+                          padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: isMe ? Colors.green[200] : Colors.grey[300],
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(msg['message']),
-                            const SizedBox(height: 4),
+                            Text(msg['message'],style: const TextStyle(fontSize:20,fontWeight: FontWeight.w500 ),),
+                            const SizedBox(height: 6),
                             Text(
                               timeString,
                               style: TextStyle(
-                                  fontSize: 10, color: Colors.grey[700]),
+
+                                  fontSize: 10, color: Colors.grey[700]),textAlign: TextAlign.left,
                             ),
                           ],
                         ),
