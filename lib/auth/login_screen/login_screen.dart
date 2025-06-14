@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 20.h,
               ),
-               const Text('Login',
+              const Text('Login',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 30,
@@ -88,7 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                     return null;
                   }),
-              const SizedBox(height: 100,),
+              const SizedBox(
+                height: 100,
+              ),
               EButton(
                 childButton: 'sign in',
                 routeNme: RoutesManager.homeRoute,
@@ -96,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   login();
                 },
               ),
-          
+
               // const Text(
               //   'or sign in with',
               //   textAlign: TextAlign.center,

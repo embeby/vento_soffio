@@ -77,8 +77,7 @@ class ChatScreenUser1State extends State<ChatScreenUser1> {
 
                     final timestamp = msg['timestamp'] as Timestamp?;
                     final timeString = timestamp != null
-                        ? DateFormat(' hh:mm a')
-                            .format(timestamp.toDate())
+                        ? DateFormat(' hh:mm a').format(timestamp.toDate())
                         : '...';
 
                     return Align(
@@ -87,7 +86,7 @@ class ChatScreenUser1State extends State<ChatScreenUser1> {
                       child: Container(
                         margin: const EdgeInsets.symmetric(
                             vertical: 4, horizontal: 10),
-                          padding: const EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: isMe ? Colors.green[200] : Colors.grey[300],
                           borderRadius: BorderRadius.circular(15),
@@ -95,13 +94,17 @@ class ChatScreenUser1State extends State<ChatScreenUser1> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(msg['message'],style: const TextStyle(fontSize:20,fontWeight: FontWeight.w500 ),),
+                            Text(
+                              msg['message'],
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w500),
+                            ),
                             const SizedBox(height: 6),
                             Text(
                               timeString,
                               style: TextStyle(
-
-                                  fontSize: 10, color: Colors.grey[700]),textAlign: TextAlign.left,
+                                  fontSize: 10, color: Colors.grey[700]),
+                              textAlign: TextAlign.left,
                             ),
                           ],
                         ),

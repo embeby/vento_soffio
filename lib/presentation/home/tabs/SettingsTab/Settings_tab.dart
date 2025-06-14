@@ -53,7 +53,10 @@ class _SettingsTabState extends State<SettingsTab> {
         ),
       ],
       child: Scaffold(
-        appBar: AppBar(title:  Text( AppLocalizations.of(context)!.settings,)),
+        appBar: AppBar(
+            title: Text(
+          AppLocalizations.of(context)!.settings,
+        )),
         body: BlocBuilder<UserCubit, UserEntity?>(
           builder: (context, user) {
             if (user == null) {
